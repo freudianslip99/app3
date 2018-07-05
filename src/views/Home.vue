@@ -1,8 +1,11 @@
 <template>
+
   <div class="home">
     <img src="">
     <HelloWorld msg="Graphing Application"/>
   </div>
+
+  
 </template>
 
 <script>

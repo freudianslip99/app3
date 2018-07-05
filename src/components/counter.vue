@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
 <div class="text-xs-center">
     <v-badge>
         <v-icon large color="grey lighten-1">whatshot</v-icon>
@@ -36,4 +36,4 @@ export default {
 </script>
 
 <style>
-</style> */
+</style> 
