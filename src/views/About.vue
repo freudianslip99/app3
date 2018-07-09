@@ -1,11 +1,12 @@
 <template>
+  <div>
   <div class="about">
     <h1>This is an about page.</h1>
+    <h2>Will this add anything?</h2>
   </div>
+  <v-footer color="indigo" app inset>
+      <div style='text-align:center; width:2000px;'>&copy;2018 — </div>
+  </v-footer>
+ </div>
 </template>
 
-<template>
-    <v-footer class="justify-center">
-         &copy;2018 — <strong>Vuetify</strong>
-    </v-footer>
-</template>
