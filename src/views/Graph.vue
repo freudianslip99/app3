@@ -8,7 +8,12 @@
             <svg id="visualization"  width="800" height="600"></svg>
         </v-flex>
 </v-layout>
+<v-footer color="indigo" app inset>
+      <div style='text-align:center; width:2000px; color: white'>&copy;2018 — </div>
+  </v-footer>
+ </div>
   </div>
+
 
 </template>
 
@@ -23,16 +28,10 @@ import form from '@/components/form.vue'
 
 
 export default {
-  name: 'home',
+  name: 'graph',
   components: {
     plot,
     form
   }
 }
 </script>
-  <v-footer color="indigo" app inset>
-      <div style='text-align:center; width:2000px;'>&copy;2018 — </div>
-  </v-footer>
- </div>
-</template>
-
