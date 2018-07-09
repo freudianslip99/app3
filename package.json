@@ -8,11 +8,8 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-<<<<<<< HEAD
     "mathjs": "^5.0.2",
-=======
     "material-design-icons-iconfont": "^3.0.3",
->>>>>>> dbc2d738aa3313fba1b3127e83f9e5b33ab54aef
     "vue": "^2.5.16",
     "vue-router": "^3.0.1",
     "vuetify": "^1.1.1",
@@ -47,9 +44,6 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-<<<<<<< HEAD
-  ]
-=======
   ],
   "main": "babel.config.js",
   "repository": {
@@ -63,5 +57,4 @@
   },
   "homepage": "https://github.com/freudianslip99/app3#readme",
   "description": ""
->>>>>>> dbc2d738aa3313fba1b3127e83f9e5b33ab54aef
 }
