@@ -1,5 +1,9 @@
 <template>
+<<<<<<< HEAD
 
+=======
+  <div>
+>>>>>>> dbc2d738aa3313fba1b3127e83f9e5b33ab54aef
   <div class="graph">
     <h1>This is a graph.</h1>
     <v-layout row>
@@ -8,6 +12,7 @@
         </v-flex>
 </v-layout>
   </div>
+<<<<<<< HEAD
 
 </template>
 
@@ -29,3 +34,11 @@ export default {
   }
 }
 </script>
+=======
+  <v-footer color="indigo" app inset>
+      <div style='text-align:center; width:2000px;'>&copy;2018 — </div>
+  </v-footer>
+ </div>
+</template>
+
+>>>>>>> dbc2d738aa3313fba1b3127e83f9e5b33ab54aef
