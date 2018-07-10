@@ -15,26 +15,29 @@
 </template>
 
 <script>
+
 import {
     eventBus
 } from '../main.js';
+
 var d3 = require("d3");
+
 export default {
     name: "graph",
     data() {
         return {
-            message: "This is a graph",
+            message: "This is a plot",
             x: [],
             y: []
         }
     },
     created() {
-        eventBus.$on('tools-x', val => {
-            //console.log(val);
+        eventBus.$on('plot-x', val => {
+            
             this.x = val;
         });
-        eventBus.$on('tools-y', val => {
-            //console.log(val);
+        eventBus.$on('plot-y', val => {
+            
             this.y = val;
         });
     },
@@ -67,6 +70,7 @@ export default {
                 element.removeChild(element.firstChild);
             }
             var lineData = this.data;
+
             var vis = d3.select("svg"),
                 margin = {
                     top: 20,
@@ -113,8 +117,7 @@ export default {
 </script>
 
 <style>
-/* 13. Basic Styling with CSS */
-/* Style the lines by removing the fill and applying a stroke */
+
 .line {
     fill: none;
     stroke: rgb(45, 141, 219);

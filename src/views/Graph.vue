@@ -2,15 +2,19 @@
 
 <div>
   <div class="graph">
-    <h1>This is a graph.</h1>
-    <div>
-    <svg width="200" height="200">
-  <circle fill="#3E5693" cx="50" cy="120" r="20" />
-  <text x="100" y="100">Hello SVG!</text>
-  <path d="M100,10L150,70L50,70Z" fill="#BEDBC3" stroke="#539E91" stroke-width="3"></path>
-</svg>
+    <h1>This is the graph page.</h1>
 
-    </div>
+  <v-content>
+        <v-container >
+            <plot />
+            <form />
+        </v-container>
+        
+</v-content>
+    
+
+
+
 <v-footer color="indigo" app inset>
       <div style='text-align:center; width:2000px; color: white'>&copy;2018 — </div>
 </v-footer>
@@ -27,14 +31,15 @@
 // @ is an alias to /src
 import plot from '@/components/plot.vue'
 import form from '@/components/form.vue'
-
+import counter from '@/components/counter.vue'
 
 
 export default {
   name: 'graph',
   components: {
     plot,
-    form
+    form,
+    counter
     
   }
 }
