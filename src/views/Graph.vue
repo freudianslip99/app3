@@ -13,6 +13,7 @@
         
         <v-container>
             <counter />
+            <store />
         </v-container>
 
 </v-content>
@@ -35,15 +36,15 @@
 import plot from '@/components/plot.vue'
 import form from '@/components/form.vue'
 import counter from '@/components/counter.vue'
-
+import store from '@/store.js'
 
 export default {
   name: 'graph',
   components: {
     plot,
     form,
-    counter
-    
+    counter,
+    store
   }
 }
 </script>
