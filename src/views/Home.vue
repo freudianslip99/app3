@@ -1,13 +1,25 @@
 <template>
+
 <div>
   <div class="home">
     <img src="">
     <HelloWorld msg="Graphing Application"/>
-  </div>
+         
+</div>
+
+<div>
+<v-container >
+            <form />
+          </v-container>
+</div>
+
+
+
   <v-footer color="indigo" app inset>
       <div style='text-align:center; width:2000px; color: white'>&copy;2018 — </div>
   </v-footer>
  </div>
+ 
 </template>
 
 
@@ -15,12 +27,13 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
-
+import form from '@/components/form.vue'
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
+    HelloWorld,
+    form
   }
 }
 </script>

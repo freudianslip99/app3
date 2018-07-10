@@ -9,6 +9,7 @@ import 'material-design-icons-iconfont/dist/material-design-icons.css'
 
 Vue.use(Vuetify)
 
+
 export const eventBus = new Vue();
 Vue.config.productionTip = false
 
