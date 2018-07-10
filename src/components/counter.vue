@@ -3,7 +3,6 @@
     <v-badge>
         <v-icon large color="grey lighten-1">whatshot</v-icon>
         <span slot="badge">{{counter}}</span>
-
     </v-badge>
 </div>
 </template>
@@ -35,5 +34,3 @@ export default {
 }
 </script>
 
-<style>
-</style> 

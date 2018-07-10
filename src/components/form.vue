@@ -44,6 +44,7 @@
 
 <script>
 const math = require('mathjs')
+
 import {
     eventBus
 } from '../main.js';
@@ -92,5 +93,3 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
