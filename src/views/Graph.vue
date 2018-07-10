@@ -5,14 +5,17 @@
     <h1>This is the graph page.</h1>
 
   <v-content>
-        <v-container >
+
+        <v-container>
             <plot />
             <form />
         </v-container>
         
-</v-content>
-    
+        <v-container>
+            <counter />
+        </v-container>
 
+</v-content>
 
 
 <v-footer color="indigo" app inset>
