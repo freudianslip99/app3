@@ -7,11 +7,7 @@
          
 </div>
 
-<div>
-<v-container >
-            <form />
-          </v-container>
-</div>
+
 
 
 

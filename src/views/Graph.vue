@@ -10,7 +10,7 @@
             <plot />
             <form />
         </v-container>
-        
+        <v-btn color="primary">Decrement</v-btn>
         <v-container>
             <counter />
             <store />
