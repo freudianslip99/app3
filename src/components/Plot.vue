@@ -32,11 +32,11 @@ export default {
         }
     },
     created() {
-        eventBus.$on('plot-x', val => {
+        eventBus.$on('form-x', val => {
             
             this.x = val;
         });
-        eventBus.$on('plot-y', val => {
+        eventBus.$on('form-y', val => {
             
             this.y = val;
         });

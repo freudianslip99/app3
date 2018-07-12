@@ -3,14 +3,14 @@
 <div>
   <div class="graph">
     <h1>This is the graph page.</h1>
-
   <v-content>
 
         <v-container>
-            <plot />
-            <form />
+            <plot /> 
+            
+            <Form />
         </v-container>
-        <v-btn color="primary">Decrement</v-btn>
+        
         <v-container>
             <counter />
             <store />
@@ -33,17 +33,17 @@
 
 <script>
 // @ is an alias to /src
-import plot from '@/components/plot.vue'
-import form from '@/components/form.vue'
-import counter from '@/components/counter.vue'
+import Plot from '@/components/Plot.vue'
+import Form from '@/components/Form.vue'
+import Counter from '@/components/Counter.vue'
 import store from '@/store.js'
 
 export default {
   name: 'graph',
   components: {
-    plot,
-    form,
-    counter,
+    Plot,
+    Form,
+    Counter,
     store
   }
 }
