@@ -1,11 +1,11 @@
 <template>
 <div>
-    <div class="graph">
-        <h1>This is the graph page.</h1>
+    <div class="graph2">
+        <h1>This is the graph2 page.</h1>
         <v-content>
 
             <v-container>
-                <plot />
+                <plot2 />
                 <Form />
             </v-container>
 
@@ -25,15 +25,15 @@
 
 <script>
 // @ is an alias to /src
-import Plot from '@/components/Plot.vue'
+import Plot2 from '@/components/Plot2.vue'
 import Form from '@/components/Form.vue'
 import Counter from '@/components/Counter.vue'
 import store from '@/store.js'
 
 export default {
-    name: 'graph',
+    name: 'graph2',
     components: {
-        Plot,
+        Plot2,
         Form,
         Counter,
         store

@@ -58,6 +58,7 @@ export default {
             required: (value) => !!value || 'Required.',
             equation: (value) => {
                 return value.includes('x') || 'You must include x'
+                
             }
         }
     }),

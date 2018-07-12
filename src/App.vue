@@ -5,7 +5,10 @@
             <div id="nav">
                 <router-link to="/">Home</router-link> |
                 <router-link to="/graph">Graph</router-link> |
-                <router-link to="/about">About</router-link>
+                <router-link to="/graph2">Graph2</router-link> |
+                <router-link to="/about">About</router-link> |
+                
+                
             </div>
             <router-view/>
         </div>

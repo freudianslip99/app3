@@ -25,7 +25,7 @@ export default {
     name: "graph",
     data() {
         return {
-            message: "This is a linear plot",
+            message: "This is a log plot",
             x: [],
             y: []
         }
@@ -80,10 +80,10 @@ export default {
                 width = 800 - margin.left - margin.right,
                 height = 600 - margin.top - margin.bottom,
                 // See scales here: http://d3indepth.com/scales/
-                xRange = d3.scaleLinear()
+                xRange = d3.scaleLog()
                 .range([margin.left, width - margin.right])
                 .domain([Math.min(...this.x), Math.max(...this.x)]),
-                yRange = d3.scaleLinear()
+                yRange = d3.scaleLog()
                 .range([height - margin.top, margin.bottom])
                 .domain([Math.min(...this.y), Math.max(...this.y)]),
                 xAxis = d3.axisBottom(xRange)
