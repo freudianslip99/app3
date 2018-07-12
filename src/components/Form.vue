@@ -47,11 +47,12 @@ import {
 } from '../main.js';
 export default {
     name: "form",
+    
     data: () => ({
         valid: false,
         from: 1,
-        to: 100,
-        steps: 99,
+        to: 10,
+        steps: 100,
         y: null,
         equation: '',
         rules: {

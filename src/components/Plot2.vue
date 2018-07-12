@@ -88,11 +88,13 @@ export default {
                 .domain([Math.min(...this.y), Math.max(...this.y)]),
                 xAxis = d3.axisBottom(xRange)
                 .tickSize(1),
+                
                 yAxis = d3.axisLeft(yRange)
                 .tickSize(1);
             vis.append("svg:g")
                 .attr("class", "x axis")
                 .attr("transform", "translate(0," + (height - margin.bottom) + ")")
+                
                 .call(xAxis);
             vis.append("svg:g")
                 .attr("class", "y axis")
