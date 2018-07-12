@@ -1,5 +1,4 @@
 <template>
-
 <v-form v-model="valid">
 
     <v-container grid-list-md>
@@ -17,10 +16,7 @@
         </v-layout>
         <v-layout row>
             <v-flex xs8>
-                <v-text-field id="equation" name="equation" label="Equation" 
-                :rules="[rules.required, rules.equation]" 
-                @keyup.enter.native="calculateY"
-                v-model.number="equation"></v-text-field>
+                <v-text-field id="equation" name="equation" label="Equation" :rules="[rules.required, rules.equation]" @keyup.enter.native="calculateY" v-model.number="equation"></v-text-field>
             </v-flex>
         </v-layout>
         <v-layout row>
@@ -41,7 +37,6 @@
     </v-container>
 
 </v-form>
-
 </template>
 
 <script>
@@ -94,4 +89,3 @@ export default {
     }
 };
 </script>
-

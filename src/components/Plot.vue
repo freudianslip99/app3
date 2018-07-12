@@ -8,14 +8,13 @@
 
     <v-layout row>
         <v-flex xs12>
-            <svg id="visualization"  width="800" height="600"></svg>
+            <svg id="visualization" width="800" height="600"></svg>
         </v-flex>
     </v-layout>
 </v-container>
 </template>
 
 <script>
-
 import {
     eventBus
 } from '../main.js';
@@ -33,11 +32,11 @@ export default {
     },
     created() {
         eventBus.$on('form-x', val => {
-            
+
             this.x = val;
         });
         eventBus.$on('form-y', val => {
-            
+
             this.y = val;
         });
     },
@@ -52,13 +51,13 @@ export default {
         }
     },
     mounted() {
-        
+
         this.draw();
     },
     watch: {
         // When the data changes this is called
         data: function () {
-            
+
             this.draw();
         }
     },
@@ -66,7 +65,7 @@ export default {
         draw: function () {
             var element = document.getElementById("visualization");
             while (element.firstChild) {
-                
+
                 element.removeChild(element.firstChild);
             }
             var lineData = this.data;
@@ -117,11 +116,9 @@ export default {
 </script>
 
 <style>
-
 .line {
     fill: none;
     stroke: rgb(45, 141, 219);
     stroke-width: 2px;
 }
 </style>
-
