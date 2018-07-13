@@ -10,7 +10,7 @@
                 
                 
             </div>
-            <keep-alive>
+            <keep-alive include="graph,graph2">
               <router-view></router-view>
             </keep-alive>
         </div>
