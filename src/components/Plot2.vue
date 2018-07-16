@@ -8,7 +8,7 @@
 
     <v-layout row>
         <v-flex xs12>
-            <svg id="visualization" width="800" height="600"></svg>
+            <svg id="visualization2" width="800" height="600"></svg>
         </v-flex>
     </v-layout>
 </v-container>
@@ -63,14 +63,14 @@ export default {
     },
     methods: {
         draw: function () {
-            var element = document.getElementById("visualization");
+            var element = document.getElementById("visualization2");
             while (element.firstChild) {
 
                 element.removeChild(element.firstChild);
             }
             var lineData = this.data;
 
-            var vis = d3.select("svg"),
+            var vis = d3.select("#visualization2"),
                 margin = {
                     top: 20,
                     right: 20,
@@ -87,8 +87,8 @@ export default {
                 .range([height - margin.top, margin.bottom])
                 .domain([Math.min(...this.y), Math.max(...this.y)]),
                 xAxis = d3.axisBottom(xRange)
-                .tickSize(1),
-                
+                .tickSize(1)
+                .ticks(20),
                 yAxis = d3.axisLeft(yRange)
                 .tickSize(1);
             vis.append("svg:g")
@@ -112,6 +112,8 @@ export default {
                 .attr("stroke", "blue")
                 .attr("stroke-width", 2)
                 .attr("fill", "none");
+
+                 
         }
     }
 }
@@ -122,5 +124,14 @@ export default {
     fill: none;
     stroke: rgb(45, 141, 219);
     stroke-width: 2px;
+}
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
 }
 </style>

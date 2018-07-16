@@ -8,7 +8,7 @@
 
     <v-layout row>
         <v-flex xs12>
-            <svg id="visualization" width="800" height="600"></svg>
+            <svg id="visualization1" width="800" height="600"></svg>
         </v-flex>
     </v-layout>
 </v-container>
@@ -63,14 +63,16 @@ export default {
     },
     methods: {
         draw: function () {
-            var element = document.getElementById("visualization");
+            var element = document.getElementById("visualization1");
             while (element.firstChild) {
 
                 element.removeChild(element.firstChild);
             }
+
+            console.log("before data");
             var lineData = this.data;
 
-            var vis = d3.select("svg"),
+            var vis = d3.select("#visualization1"),
                 margin = {
                     top: 20,
                     right: 20,
@@ -87,9 +89,9 @@ export default {
                 .range([height - margin.top, margin.bottom])
                 .domain([Math.min(...this.y), Math.max(...this.y)]),
                 xAxis = d3.axisBottom(xRange)
-                .tickSize(1),
+                ,
                 yAxis = d3.axisLeft(yRange)
-                .tickSize(1);
+                ;
             vis.append("svg:g")
                 .attr("class", "x axis")
                 .attr("transform", "translate(0," + (height - margin.bottom) + ")")
