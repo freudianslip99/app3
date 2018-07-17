@@ -81,6 +81,8 @@ export default {
                 },
                 width = 800 - margin.left - margin.right,
                 height = 600 - margin.top - margin.bottom,
+
+
                 // See scales here: http://d3indepth.com/scales/
                 xRange = d3.scaleLinear()
                 .range([margin.left, width - margin.right])
@@ -92,6 +94,10 @@ export default {
                 ,
                 yAxis = d3.axisLeft(yRange)
                 ;
+
+
+
+                
             vis.append("svg:g")
                 .attr("class", "x axis")
                 .attr("transform", "translate(0," + (height - margin.bottom) + ")")
@@ -100,6 +106,7 @@ export default {
                 .attr("class", "y axis")
                 .attr("transform", "translate(" + (margin.left) + ",0)")
                 .call(yAxis);
+                
             var lineFunc = d3.line()
                 .x(function (d) {
                     return xRange(d.x);
@@ -112,6 +119,9 @@ export default {
                 .attr("stroke", "blue")
                 .attr("stroke-width", 2)
                 .attr("fill", "none");
+
+
+                
         }
     }
 }
@@ -123,4 +133,6 @@ export default {
     stroke: rgb(45, 141, 219);
     stroke-width: 2px;
 }
+
+
 </style>

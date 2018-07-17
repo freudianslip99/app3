@@ -61,6 +61,7 @@ export default {
             this.draw();
         }
     },
+    
     methods: {
         draw: function () {
             var element = document.getElementById("visualization2");
@@ -73,12 +74,18 @@ export default {
             var vis = d3.select("#visualization2"),
                 margin = {
                     top: 20,
-                    right: 20,
+                    right: 10,
                     bottom: 20,
-                    left: 20
+                    left: 10
                 },
+                
+                
+                
                 width = 800 - margin.left - margin.right,
                 height = 600 - margin.top - margin.bottom,
+                
+                
+                
                 // See scales here: http://d3indepth.com/scales/
                 xRange = d3.scaleLog()
                 .range([margin.left, width - margin.right])
@@ -86,20 +93,39 @@ export default {
                 yRange = d3.scaleLog()
                 .range([height - margin.top, margin.bottom])
                 .domain([Math.min(...this.y), Math.max(...this.y)]),
+
+
+
                 xAxis = d3.axisBottom(xRange)
-                .tickSize(1)
-                .ticks(20),
-                yAxis = d3.axisLeft(yRange)
-                .tickSize(1);
+                .scale(xRange)
+                .orient("bottom")
+                .innerTickSize(-height)
+                .outerTickSize(0)
+                .tickPadding(10),
+
+                yAxis =  d3.axisLeft(yRange)
+                .scale(yRange)
+                .orient("left")
+                .innerTickSize(-width)
+                .outerTickSize(0)
+                .tickPadding(10);
+
+            
+
+
+
             vis.append("svg:g")
                 .attr("class", "x axis")
                 .attr("transform", "translate(0," + (height - margin.bottom) + ")")
                 
-                .call(xAxis);
+                .call(xAxis)
+                
             vis.append("svg:g")
                 .attr("class", "y axis")
                 .attr("transform", "translate(" + (margin.left) + ",0)")
-                .call(yAxis);
+                .call(yAxis)
+            
+            
             var lineFunc = d3.line()
                 .x(function (d) {
                     return xRange(d.x);
@@ -125,13 +151,11 @@ export default {
     stroke: rgb(45, 141, 219);
     stroke-width: 2px;
 }
-.grid line {
-  stroke: lightgrey;
-  stroke-opacity: 0.7;
-  shape-rendering: crispEdges;
+.grid .tick {
+    stroke: lightgrey;
+    opacity: 0.7;
 }
-
 .grid path {
-  stroke-width: 0;
+      stroke-width: 0;
 }
 </style>
