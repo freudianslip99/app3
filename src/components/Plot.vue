@@ -19,7 +19,7 @@ import {
     eventBus
 } from '../main.js';
 
-var d3 = require("d3");
+var d3 = require('d3');
 
 export default {
     name: "graph",

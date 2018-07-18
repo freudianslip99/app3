@@ -51,7 +51,7 @@ export default {
     data: () => ({
         valid: false,
         from: 1,
-        to: 40,
+        to: 10,
         steps: 100,
         y: null,
         equation: '',

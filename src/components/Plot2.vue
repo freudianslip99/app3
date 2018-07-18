@@ -19,7 +19,7 @@ import {
     eventBus
 } from '../main.js';
 
-var d3 = require("d3");
+var d3 = require('d3');
 
 export default {
     name: "graph",
@@ -61,7 +61,7 @@ export default {
             this.draw();
         }
     },
-    
+
     methods: {
         draw: function () {
             var element = document.getElementById("visualization2");
@@ -78,14 +78,10 @@ export default {
                     bottom: 20,
                     left: 10
                 },
-                
-                
-                
+
                 width = 800 - margin.left - margin.right,
                 height = 600 - margin.top - margin.bottom,
-                
-                
-                
+
                 // See scales here: http://d3indepth.com/scales/
                 xRange = d3.scaleLog()
                 .range([margin.left, width - margin.right])
@@ -94,38 +90,36 @@ export default {
                 .range([height - margin.top, margin.bottom])
                 .domain([Math.min(...this.y), Math.max(...this.y)]),
 
-
-
                 xAxis = d3.axisBottom(xRange)
-                .scale(xRange)
-                .orient("bottom")
-                .innerTickSize(-height)
-                .outerTickSize(0)
-                .tickPadding(10),
-
-                yAxis =  d3.axisLeft(yRange)
-                .scale(yRange)
-                .orient("left")
-                .innerTickSize(-width)
-                .outerTickSize(0)
-                .tickPadding(10);
-
-            
-
-
+                .tickSize(1)
+                .ticks(20),
+                yAxis = d3.axisLeft(yRange)
+                .tickSize(1);
 
             vis.append("svg:g")
                 .attr("class", "x axis")
                 .attr("transform", "translate(0," + (height - margin.bottom) + ")")
-                
+
                 .call(xAxis)
-                
+                .selectAll(".tick text")
+                .text(null)
+                .filter(powerOfTen)
+                .text(10)
+                .append("tspan")
+                .attr("dy", "-.7em")
+                .text(function (d) {
+                    return Math.round(Math.log(d) / Math.LN10);
+                });
+
+            function powerOfTen(d) {
+                return d / Math.pow(10, Math.ceil(Math.log(d) / Math.LN10 - 1e-12)) === 1;
+            }
+
             vis.append("svg:g")
                 .attr("class", "y axis")
                 .attr("transform", "translate(" + (margin.left) + ",0)")
                 .call(yAxis)
-            
-            
+
             var lineFunc = d3.line()
                 .x(function (d) {
                     return xRange(d.x);
@@ -139,23 +133,24 @@ export default {
                 .attr("stroke-width", 2)
                 .attr("fill", "none");
 
-                 
         }
     }
 }
 </script>
 
 <style>
-.line {
-    fill: none;
-    stroke: rgb(45, 141, 219);
-    stroke-width: 2px;
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
 }
-.grid .tick {
-    stroke: lightgrey;
-    opacity: 0.7;
+
+.axis text {
+  font: 13px "helvetica neue";
 }
-.grid path {
-      stroke-width: 0;
+
+.axis tspan {
+  font-size: 9px;
 }
 </style>
