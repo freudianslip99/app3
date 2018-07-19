@@ -47,11 +47,11 @@ import {
 } from '../main.js';
 export default {
     name: "form",
-    
+
     data: () => ({
         valid: false,
-        from: 1,
-        to: 10,
+        from: 2,
+        to: 1000,
         steps: 100,
         y: null,
         equation: '',
@@ -59,7 +59,7 @@ export default {
             required: (value) => !!value || 'Required.',
             equation: (value) => {
                 return value.includes('x') || 'You must include x'
-                
+
             }
         }
     }),

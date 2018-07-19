@@ -75,38 +75,37 @@ export default {
             var vis = d3.select("#visualization1"),
                 margin = {
                     top: 20,
-                    right: 20,
+                    right: 50,
                     bottom: 20,
-                    left: 20
-                },
-                width = 800 - margin.left - margin.right,
-                height = 600 - margin.top - margin.bottom,
+                    left: 50
+                };
 
+            var width = 800 - margin.left - margin.right;
+            var height = 600 - margin.top - margin.bottom;
 
-                // See scales here: http://d3indepth.com/scales/
-                xRange = d3.scaleLinear()
+            // See scales here: http://d3indepth.com/scales/
+            var xRange = d3.scaleLinear()
                 .range([margin.left, width - margin.right])
-                .domain([Math.min(...this.x), Math.max(...this.x)]),
-                yRange = d3.scaleLinear()
+                .domain([Math.min(...this.x), Math.max(...this.x)]);
+
+            var yRange = d3.scaleLinear()
                 .range([height - margin.top, margin.bottom])
-                .domain([Math.min(...this.y), Math.max(...this.y)]),
-                xAxis = d3.axisBottom(xRange)
-                ,
-                yAxis = d3.axisLeft(yRange)
-                ;
+                .domain([Math.min(...this.y), Math.max(...this.y)]);
 
+            var xAxis = d3.axisBottom(xRange);
 
+            var yAxis = d3.axisLeft(yRange);
 
-                
             vis.append("svg:g")
                 .attr("class", "x axis")
                 .attr("transform", "translate(0," + (height - margin.bottom) + ")")
                 .call(xAxis);
+
             vis.append("svg:g")
                 .attr("class", "y axis")
                 .attr("transform", "translate(" + (margin.left) + ",0)")
                 .call(yAxis);
-                
+
             var lineFunc = d3.line()
                 .x(function (d) {
                     return xRange(d.x);
@@ -120,8 +119,6 @@ export default {
                 .attr("stroke-width", 2)
                 .attr("fill", "none");
 
-
-                
         }
     }
 }
@@ -133,6 +130,4 @@ export default {
     stroke: rgb(45, 141, 219);
     stroke-width: 2px;
 }
-
-
 </style>
