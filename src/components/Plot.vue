@@ -120,14 +120,17 @@ export default {
                 .attr("fill", "none");
 
         }
-    }
+    //     clear () {
+    //     d3.selectAll("svg > *").remove();
+    // }
+}
 }
 </script>
 
 <style>
 .line {
-    fill: none;
-    stroke: rgb(45, 141, 219);
-    stroke-width: 2px;
+  fill: none;
+  stroke: rgb(45, 141, 219);
+  stroke-width: 2px;
 }
 </style>
