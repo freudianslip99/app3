@@ -119,10 +119,8 @@ export default {
                 .attr("stroke-width", 2)
                 .attr("fill", "none");
 
-        }
-    //     clear () {
-    //     d3.selectAll("svg > *").remove();
-    // }
+        },
+
 }
 }
 </script>
