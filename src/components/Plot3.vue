@@ -25,7 +25,7 @@ export default {
   name: "graph",
   data() {
     return {
-      message: "This is a linear plot",
+      message: "This is a plot",
       x: [],
       y: []
     }

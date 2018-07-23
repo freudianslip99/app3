@@ -141,7 +141,6 @@ export default {
         .attr("stroke-width", 2)
         .attr("fill", "none");
 
-
     }
   }
 }

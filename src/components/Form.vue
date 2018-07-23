@@ -65,8 +65,8 @@ export default {
         return value.includes('x') || 'You must include x'
       },
       numval: (value) => {
-          const pattern = /^[0-9]+$/
-          return pattern.test(value) || 'Must be a number'
+        const pattern = /^[0-9]+$/
+        return pattern.test(value) || 'Must be a number'
       }
     }
   }),
@@ -89,24 +89,21 @@ export default {
     }
   },
 
-
-
-
-computed: {
-  arange: function () {
-    if (this.to && this.from && this.steps) {
-      var increment = (this.to - this.from) / this.steps;
-      var result = [];
-      var i = 0;
-      for (i = this.from; i <= this.to; i += increment) {
-        result.push(parseFloat(i.toFixed(2)));
+  computed: {
+    arange: function () {
+      if (this.to && this.from && this.steps) {
+        var increment = (this.to - this.from) / this.steps;
+        var result = [];
+        var i = 0;
+        for (i = this.from; i <= this.to; i += increment) {
+          result.push(parseFloat(i.toFixed(2)));
+        }
+        //console.log(result);
+        eventBus.$emit('form-x', result);
+        return result;
       }
-      //console.log(result);
-      eventBus.$emit('form-x', result);
-      return result;
     }
   }
-}
 };
 </script>
 
