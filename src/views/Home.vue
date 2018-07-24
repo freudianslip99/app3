@@ -1,7 +1,7 @@
 <template>
 <div>
   <div class="home">
-    <img src="">
+    <img src="https://neutrons.ornl.gov/sites/default/files/styles/page_width_1240w/public/SNS-aerial_0.jpg?itok=AvDXDamH">
     <HelloWorld msg="Graphing Application" />
   </div>
   <v-footer color="indigo" app inset>
@@ -15,11 +15,13 @@
 import HelloWorld from '@/components/HelloWorld.vue'
 import Form from '@/components/Form.vue'
 
+
 export default {
   name: 'home',
   components: {
     HelloWorld,
-    Form
+    Form,
+
   }
 }
 </script>

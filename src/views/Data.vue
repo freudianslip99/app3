@@ -1,21 +1,16 @@
 <template>
 <div>
   <div class="graph">
-    <h1>This is the graph page.</h1>
+
     <v-content>
 
       <v-container>
 
-        <v-tabs>
-          <v-tab>Plot </v-tab>
 
-          <v-tab-item>
-            <plot3 />
-          </v-tab-item>
+<upload-button class="btn--light-round jbtn-file" title="Browse" :selectedCallback="fileSelectedFunc">
+</upload-button>
 
-        </v-tabs>
 
-        <Form />
       </v-container>
 
       <v-container>
@@ -32,20 +27,30 @@
 </div>
 </template>
 
+<script type="text/javascript" src="node_modules/vuejs/dist/vue.min.js"></script>
+<script type="text/javascript" src="node_modules/vuetify-upload-button/dist/upload-button.min.js"></script>
+<script type="text/javascript">
+  Vue.use(UploadButton);
+</script>
+
 <script>
 // @ is an alias to /src
-import Plot3 from '@/components/Plot3.vue'
 
+import UploadButton from 'vuetify-upload-button';
 import Form from '@/components/Form.vue'
 import Counter from '@/components/Counter.vue'
 import store from '@/store.js'
 
+
+
+
+
+
+
 export default {
   name: 'graph',
   components: {
-    Plot3,
-
-    Form,
+    UploadButton,
     Counter,
     store
   }
