@@ -9,11 +9,15 @@
   },
   "dependencies": {
     "d3": "^5.5.0",
+    "ify-loader": "^1.1.0",
     "material-design-icons": "^3.0.1",
     "material-design-icons-iconfont": "^3.0.3",
     "mathjs": "^5.0.3",
+    "papaparse": "^4.5.0",
+    "plotly.js": "^1.39.2",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1",
+    "vue-simple-upload": "^0.1.6",
     "vuetify": "^1.1.5",
     "vuetify-upload-button": "^0.1.2",
     "vuex": "^3.0.1"

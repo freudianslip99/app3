@@ -1,21 +1,19 @@
 <template>
 <div>
-  <div class="graph">
+
+  <div class="data">
 
     <v-content>
 
       <v-container>
 
-
-<upload-button class="btn--light-round jbtn-file" title="Browse" :selectedCallback="fileSelectedFunc">
-</upload-button>
+        <v-flex xs12 class="text-xs-center text-sm-center text-md-center text-lg-center">
 
 
-      </v-container>
+          <input type='file' id='files' prepend-icon='attach_file'/>
 
-      <v-container>
-        <counter />
-        <store />
+        </v-flex>
+
       </v-container>
 
     </v-content>
@@ -24,35 +22,47 @@
       <div style='text-align:center; width:2000px; color: white'>&copy;2018 — </div>
     </v-footer>
   </div>
+
 </div>
 </template>
-
-<script type="text/javascript" src="node_modules/vuejs/dist/vue.min.js"></script>
-<script type="text/javascript" src="node_modules/vuetify-upload-button/dist/upload-button.min.js"></script>
-<script type="text/javascript">
-  Vue.use(UploadButton);
-</script>
 
 <script>
 // @ is an alias to /src
 
-import UploadButton from 'vuetify-upload-button';
-import Form from '@/components/Form.vue'
-import Counter from '@/components/Counter.vue'
-import store from '@/store.js'
-
-
-
-
-
-
-
 export default {
-  name: 'graph',
-  components: {
-    UploadButton,
-    Counter,
-    store
+  name: 'data',
+  components: {},
+  methods: {
+
+    pickFile() {
+      console.log(this.$refs);
+      this.$refs.image.click();
+    },
+
+    onFilePicked(e) {
+      const files = e.target.files
+      if (files[0] !== undefined) {
+        this.imageName = files[0].name
+        if (this.imageName.lastIndexOf('.') <= 0) {
+          return
+        }
+        const fr = new FileReader()
+
+        fr.readAsDataURL(files[0])
+
+        fr.addEventListener('load', () => {
+          this.imageUrl = fr.result
+          this.imageFile = files[0] // this is an image file that can be sent to server...
+        })
+
+
+      } else {
+        this.imageName = ''
+        this.imageFile = ''
+        this.imageUrl = ''
+      }
+    }
+
   }
 }
 </script>
