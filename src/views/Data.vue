@@ -3,14 +3,17 @@
 
   <div class="data">
 
+    <file-input v-model="filename" @formData="formData"></file-input>
+
+    <v-btn @click.native="uploadFiles"></v-btn>
+
     <v-content>
 
       <v-container>
 
         <v-flex xs12 class="text-xs-center text-sm-center text-md-center text-lg-center">
 
-
-          <input type='file' id='files' prepend-icon='attach_file'/>
+          <input type='file' id='files' prepend-icon='attach_file' />
 
         </v-flex>
 
@@ -27,42 +30,46 @@
 </template>
 
 <script>
-// @ is an alias to /src
+import FileInput from '@/components/File-input.vue';
 
 export default {
   name: 'data',
-  components: {},
+  components: {
+    FileInput,
+  },
   methods: {
-
     pickFile() {
       console.log(this.$refs);
       this.$refs.image.click();
     },
 
     onFilePicked(e) {
-      const files = e.target.files
+      const files = e.target.files;
       if (files[0] !== undefined) {
-        this.imageName = files[0].name
+        this.imageName = files[0].name;
         if (this.imageName.lastIndexOf('.') <= 0) {
-          return
+          return;
         }
-        const fr = new FileReader()
+        const fr = new FileReader();
 
-        fr.readAsDataURL(files[0])
+        fr.readAsDataURL(files[0]);
 
         fr.addEventListener('load', () => {
-          this.imageUrl = fr.result
-          this.imageFile = files[0] // this is an image file that can be sent to server...
-        })
-
-
+          this.imageUrl = fr.result;
+          this.imageFile = files[0]; // this is an image file that can be sent to server...
+        });
       } else {
-        this.imageName = ''
-        this.imageFile = ''
-        this.imageUrl = ''
+        this.imageName = '';
+        this.imageFile = '';
+        this.imageUrl = '';
       }
-    }
+    },
 
-  }
-}
+    uploadFiles() {
+      // your custom upload method
+      const form = this.formData;
+      console.log(form);
+    },
+  },
+};
 </script>
