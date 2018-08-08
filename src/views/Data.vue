@@ -2,25 +2,13 @@
 <div>
 
   <div class="data">
-    <!-- <textarea rows="10" v-model="text"></textarea>
+    <textarea rows="10" v-model="text"></textarea>
     <br>
-    <text-reader @load="text = $event"></text-reader> -->
+    <text-reader @load="text = $event"></text-reader>
     <br>
     <br>
 
     <v-content>
-
-      <v-container>
-        <form class="form-inline">
-          <div class="form-group">
-            <label for="files">Upload a CSV formatted file:</label>
-            <input type="file" id="files" class="form-control" accept=".csv" required />
-          </div>
-          <div class="form-group">
-            <button type="submit" id="submit-file" class="btn btn-primary">Upload File</button>
-          </div>
-        </form>
-      </v-container>
 
     </v-content>
 
@@ -33,10 +21,11 @@
 </template>
 
 <script>
-//import TextReader from '@/components/TextReader.vue';
-import Papa from 'papaparse';
-import JQuery from 'jquery';
-let $ = JQuery;
+</script>
+
+<script>
+import TextReader from '@/components/TextReader.vue';
+var d3 = require('d3');
 
 export default {
   name: 'data',
@@ -44,50 +33,26 @@ export default {
     text: '',
   }),
   components: {
-    //TextReader,
-    Papa,
-    JQuery,
+    TextReader,
   },
 
   methods: {},
 };
 
-$('#submit-file').on('click', function(e) {
-  e.preventDefault();
-  $('#files').parse({
-    config: {
-      delimiter: 'auto',
-      complete: displayHTMLTable,
-    },
-    before: function(files) {
-      console.log('Parsing file...', files);
-    },
-    error: function(err, file) {
-      console.log('ERROR:', err, file);
-    },
-    complete: function() {
-      console.log('Done with all files');
-    },
-  });
-});
-
-function displayHTMLTable(results) {
-  var table = "<table class='table'>";
-  var data = results.data;
-  let i = 0;
-  for (i = 0; i < data.length; i++) {
-    table += '<tr>';
-    var row = data[i];
-    var cells = row.join(',').split(',');
-    let j = 0;
-    for (j = 0; j < cells.length; j++) {
-      table += '<td>';
-      table += cells[j];
-      table += '</th>';
-    }
-    table += '</tr>';
+d3.csv(
+  '/home/Documents/github/app3/src/_HFIR_HB2A_IPTS-19949_exp652_Datafiles_HB2A_exp0652_scan0002.dat',
+  function(data) {
+    console.log(data[0]);
   }
-  table += '</table>';
-  $('#parsed_csv_list').html(table);
-}
+);
 </script>
+
+<!--var lines = [
+    ['a', 'b', 'c'],
+    ['a1', 'b', 'c'],
+    ['a2', 'b', 'c']
+];
+
+lines.forEach(function(line) {
+ console.log(line);
+}); -->
